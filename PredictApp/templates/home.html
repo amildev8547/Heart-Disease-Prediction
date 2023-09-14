@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Health Predictor - Your Cardiovascular Wellness Solution</title>
+  <style>
+    /* Styles for the landing page */
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #f5f5f5;
+    }
+    .jumbotron {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                  url("https://source.unsplash.com/1600x900/?heart-health") center/cover;
+      color: #ffffff;
+      padding: 30px 0;
+      margin-bottom: 10;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      transform: translateY(-5px);
+      
+      border: 1px solid #FFFFFF;
+    }
+    .cta-btn {
+      font-size: 1.2rem;
+      background-color: #64c8f9;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .cta-btn:hover {
+      background-color: #5abcf7;
+    }
+    /* Additional styles for the form */
+    .form-column {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+     
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+      border: 1px solid #9f9e9e;
+    }
+    .form-title {
+      text-align: center;
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .submit-button {
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .submit-button:hover {
+      background-color: #0056b3;
+    }
+    .footer {
+     
+      
+      padding: 20px 1;
+    }
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="jumbotron text-center">
+    <h1 style="font-size: 4rem">Heart Disease Prediction Form</h1>
+    
+  </div>
+
+  <div class="container">
+    
+    <div class="form-container">
+    <br>
+    <form method="post" action="{% url 'PredictApp:predict' %}">
+      {% csrf_token %}
+      <div class="form-row form-column">
+        <div class="col">
+          <div class="form-group">
+            <label for="age">Age (20-90):</label>
+            <input type="number" class="form-control" id="age" name="age" min="20" max="90" required />
+          </div>
+          <div class="form-group">
+            <label>Sex:</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="sex" id="male" value="1" required />
+              <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="sex" id="female" value="0" required />
+              <label class="form-check-label" for="female">Female</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="cp">Chest Pain Type:</label>
+            <select class="form-control" id="cp" name="cp" required>
+              <option value=""></option>
+              <option value="4">No Pain</option>
+              <option value="3">Unusual Chest Pain</option>
+              <option value="2">Non-Heart related Chest Pain</option>
+              <option value="1">Typical Chest Pain</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="trestbps">Resting Blood Pressure (e.g., 120 mm Hg):</label>
+            <input type="number" class="form-control" id="trestbps" name="trestbps" required />
+          </div>
+          <div class="form-group">
+            <label for="chol">Cholesterol (e.g., 200 mg/dl):</label>
+            <input type="number" class="form-control" id="chol" name="chol" required />
+          </div>
+          <div class="form-group">
+            <label>Fasting Blood Sugar (> 120 mg/dl):</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="fbs" value="1" required />
+              <label class="form-check-label" for="fbs1">True</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="fbs" value="0" required />
+              <label class="form-check-label" for="fbs0">False</label>
+            </div>
+          </div>
+        </div>
+        <div class="col">  
+          <div class="form-group">
+            <label for="restecg">Resting ECG Results:</label>
+            <select class="form-control" id="restecg" name="restecg" required>
+              <option value=""></option>
+              <option value="1">Left Chamber of the Heart has Thickened Walls</option>
+              <option value="0">No Significant Abnormalities Detected</option>
+              <option value="2">Abnormality in Heart's Electrical Signals</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="thalach">Maximum Heart Rate Achieved (e.g., 140 bpm):</label>
+            <input type="number" class="form-control" id="thalach" name="thalach" required />
+          </div>
+          <div class="form-group">
+            <label>Chest Pain during Exercise:</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exang" value="1" required />
+              <label class="form-check-label" for="exang1">Yes</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exang" value="0" required />
+              <label class="form-check-label" for="exang0">No</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="oldpeak">ECG Changes during Exercise Compared to Rest (e.g., 1.8):</label>
+            <input type="number" class="form-control" id="oldpeak" name="oldpeak" step="0.01" required />
+          </div>
+          <div class="form-group">
+            <label for="slope">ST Segment on an ECG Changes during Exercise:</label>
+            <select class="form-control" id="slope" name="slope" required>
+              <option value=""></option>
+              <option value="1">It Goes Down (Like a Hill)</option>
+              <option value="2">It Stays Flat (Like Level Ground)</option>
+              <option value="3">It Goes Up (Like an Incline)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ca">Number of Major Vessels (0-3):</label>
+            <input type="number" class="form-control" id="ca" name="ca" min="0" max="3" required />
+          </div>
+          <div class="form-group">
+            <label for="thal">Thalassemia (Type of Blood Disorder):</label>
+            <select class="form-control" id="thal" name="thal" required>
+              <option value=""></option>
+              <option value="3">NULL</option>
+              <option value="6">No Blood Flow in Some Part of the Heart (Fixed Defect)</option>
+              <option value="3">Normal Blood Flow</option>
+              <option value="7">Abnormal Blood Flow that Can Be Reversed (Reversible Defect)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <center><button type="submit" class="btn btn-primary">Submit</button></center>
+    </form>
+    
+       
+
+    </div><br>
+    <footer class="text-center footer">
+      <p>&copy; 2023 Heart Health Predictor. All rights reserved. &#x2764;</p>
+    </footer>
+  </body>
+  
+  
+  
+</html>

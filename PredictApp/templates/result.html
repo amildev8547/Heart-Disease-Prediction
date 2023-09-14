@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Heart Health Predictor - Your Cardiovascular Wellness Solution
+    </title>
+    <style>
+      /* Styles for the landing page */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f5f5f5;
+      }
+      .jumbotron {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://source.unsplash.com/1600x900/?heart-health") center/cover;
+        color: #ffffff;
+        padding: 30px 0;
+        margin-bottom: 10;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        transform: translateY(-5px);
+
+        border: 1px solid #ffffff;
+      }
+      .cta-btn {
+        font-size: 1.2rem;
+        background-color: #64c8f9;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      }
+      .cta-btn:hover {
+        background-color: #5abcf7;
+      }
+      /* Additional styles for the form */
+      .form-column {
+        column-count: 2;
+        column-gap: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
+        border: 1px solid #9f9e9e;
+      }
+      .form-title {
+        text-align: center;
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .submit-button {
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 18px;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .submit-button:hover {
+        background-color: #0056b3;
+      }
+      .footer {
+        padding: 20px 1;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <h1>Heart Disease Prediction Form</h1>
+    </div>
+
+    <div class="container center-card">
+      <div class="card-header text-center">
+        <h4>Prediction Result</h4>
+      </div>
+      <div class="card-body">
+        <h5>
+          <b><center>{{ result }}</center></b>
+        </h5>
+        <br /><br />
+        <h5>Tips to maintain good health:</h5>
+        <ul>
+          {% for tip in tips %}
+          <li>{{ tip }}</li>
+          {% endfor %}
+        </ul>
+
+        <h5>Useful Links:</h5>
+        <ul>
+          <li>
+            <a
+              href="https://youtu.be/Ohm56pv85A0?feature=shared"
+              target="_blank"
+              >Cardiac Exercise Video</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://youtu.be/cW-vmmHgMOM?feature=shared"
+              target="_blank"
+              >Tips to maintain healthy heart</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <footer class="text-center footer">
+      <p>&copy; 2023 Heart Health Predictor. All rights reserved. &#x2764;</p>
+    </footer>
+    <!-- Add Bootstrap JS and jQuery scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

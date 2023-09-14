@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Heart Health Predictor - Your Cardiovascular Wellness Solution
+    </title>
+    <style>
+      /* Inline CSS for unique styling */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f5f5f5;
+      }
+      .jumbotron {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://source.unsplash.com/1600x900/?heart-health") center/cover;
+        color: #ffffff;
+        padding: 150px 0;
+        margin-bottom: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      .feature-container {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        border: 1px solid #a6a6a6;
+        margin-bottom: 30px;
+        transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+        cursor: pointer;
+      }
+      .feature-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid #9f9e9e;
+      }
+      .feature-icon {
+        font-size: 48px;
+        color: #e74c3c;
+      }
+      .feature-heading {
+        color: #333;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+      .feature-description {
+        color: #777;
+        font-size: 14px;
+      }
+      .footer {
+        background-color: #44c7f4;
+        color: #fff;
+        padding: 20px 0;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <h1 style="font-size: 4rem">Welcome to Heart Health Predictor</h1>
+      <p style="font-size: 1.5rem">
+        Your Solution for Cardiovascular Wellness &#x1F60D;
+      </p>
+      <a
+        href="{% url 'PredictApp:predict' %}"
+        class="btn cta-btn"
+        style="
+          font-size: 1.2rem;
+          background-color: #64c8f9;
+          color: #fff;
+          padding: 12px 24px;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: bold;
+          transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        "
+      >
+        Start Exploring
+      </a>
+    </div>
+
+    <div id="features" class="container text-center mt-5">
+      <h2 class="mb-4">Our Features</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="feature-container">
+            <div class="feature-icon">&#x1F4E1;</div>
+            <h3 class="feature-heading">Predictive Analysis</h3>
+            <p class="feature-description">
+              <p>Get personalized health predictions based on advanced analysis</p>
+              <a href="{% url 'PredictApp:predict' %}" target="_blank">Start Predict</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-container">
+            <div class="feature-icon">&#x1F9D1;&#x200D;&#x2695;&#xFE0F;</div>
+            <h3 class="feature-heading">Virtual Consultations</h3>
+            <p class="feature-description">
+              <p>Click the link below to start a consultant with our professional doctors for free.</p>
+    <a href="https://wa.me/7306825950" target="_blank">Open WhatsApp</a>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-container">
+            <div class="feature-icon">&#x1F49A;</div>
+            <h3 class="feature-heading">Healthy Lifestyle Tips</h3>
+            <p class="feature-description">
+              <p>Discover valuable tips and expert videos that align with your goals, all at your fingertips.
+        </p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center footer">
+      <p>&copy; 2023 Heart Health Predictor. All rights reserved. &#x2764;</p>
+    </footer>
+  </body>
+</html>
